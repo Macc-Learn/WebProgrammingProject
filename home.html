@@ -1,0 +1,144 @@
+<html>
+
+<head>
+  <title>GADGET GROUP SAMPLE</title>
+  <link rel="stylesheet" href="./css/shared.css">
+  <script src="js/cookiemanager.js"></script>
+  <script src="js/validation.js"></script>
+</head>
+<style>
+  body {
+    background-color: var(--theme1);
+  }
+
+  .headerContainer {
+    position: relative;
+    height: 25%;
+    background-color: var(--theme5);
+  }
+
+  .navContainer {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    width: 100%;
+  }
+
+  .navContainer>img {
+    width: 100px;
+  }
+
+  .navContainer>table {
+    width: max-content;
+  }
+
+  .contentSection {
+    position: relative;
+    height: 100vh;
+  }
+
+  #hero {
+    color: aqua;
+    background: url('./images/hero-image01.png');
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .footerContainer {
+    height: 45%;
+    background-color: var(--theme4);
+  }
+
+  .row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .footerContent {
+    padding: 10px 40px;
+    justify-content: space-between;
+  }
+
+  .textBoxContainer{
+    position: absolute;
+    top: 100px;
+    left: 40px;
+  }
+
+  .textBox{
+    width: 400px;
+    padding: 20px 60px;
+    background-color: var(--theme5);
+  }
+
+  button{
+    border: none;
+    padding: 10px 40px;
+    background-color: var(--theme3);
+  }
+</style>
+
+<body>
+  <div class="headerContainer">
+    <div class="navContainer">
+      <img src="./images/logo02.png" alt="">
+      <table>
+        <tr>
+          <script src="js/menu.js"></script>
+        </tr>
+      </table>
+    </div>
+
+
+  </div>
+
+  <div id="hero" class="contentSection">
+    <div class="textBoxContainer">
+    <div class="textBox">
+      <h3>Welcome To Our Website</h3>
+      <p>Welcome to Gadget Group Shop your one-stop shop for top quality keyboards, mice, and computer accessories.
+        Whether you're a gamer, a professional, or just looking to enhance your everyday setup, we have the perfect
+        tools to boost your productivity and elevate your experience. Explore our collection of cutting-edge designs and
+        ergonomic solutions tailored to meet your needs. Upgrade today and work, play, or create like never before!</p>
+        
+      </div>
+      <button>Products ></button>
+    </div>
+    
+  </div>
+
+
+  <div class="footerContainer" style="position: relative;">
+    <div class="footerContent row">
+      <span>
+        <p>Copywright</p>
+        <span class="row">
+          <p>privacy policy</p>
+          <p>|</p>
+          <p>Terms Of Service</p>
+        </span>
+      </span>
+
+      <!-- Social Media -->
+      <span class="row">
+        <a href="https://facebook.com">
+          <img src="./images/socialIconFacebook.png" alt="">
+        </a>
+        <a href="https://instagram.com">
+          <img src="./images/socialIconInstagram.png" alt="">
+        </a>
+        <a href="https://x.com">
+          <img src="./images/socialIconTwitter.png" alt="">
+        </a>
+      </span>
+    </div>
+  </div>
+
+  </div>
+</body>
+
+</html>

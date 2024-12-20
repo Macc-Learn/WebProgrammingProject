@@ -1,0 +1,50 @@
+body{
+    background-color: var(--theme1);
+    padding: 0;
+    margin: 0;
+}
+
+.bottomNav{
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.loginFormContainer{
+    position: relative;
+    background-color: var(--theme4);
+    min-width: 300px;
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 20px;
+    
+}
+
+table {
+    width: 95%;
+    color: var(--theme2);
+}
+
+td{
+    padding-bottom: 10px;
+}
+
+input{
+    height: 60px;
+    width: 100%;
+    border-radius: 20px;
+    padding: 5px 15px;
+    border: none;
+}
+input[type="button"] {
+    background: var(--theme3);
+}
+
+a{
+    color: var(--theme6);
+}
+a:visited{
+    color: var(--theme3);
+}

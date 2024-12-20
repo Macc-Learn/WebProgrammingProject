@@ -1,0 +1,121 @@
+<html>
+  <head>
+    <title>GADGET GROUP SAMPLE</title>
+    <link rel="stylesheet" href="./css/shared.css" />
+    <link rel="stylesheet" href="./css/products.css" />
+    <script src="js/cookiemanager.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/catalog.js"></script>
+    <script src="js/shoppingcart.js"></script>
+    <script>
+      const catalog = new Catalog();
+      const cart = new ShoppingCart(getCookie("whoami"));
+      cart.storeCart();
+
+      function getElement(storedItem) {
+        const item = storedItem.item;
+        const qnty = storedItem.numItems;
+        console.log(storedItem);
+
+        return `
+        <div class="prodElement"
+        >
+            <img
+              src="./images/${item.image}"
+              alt="${item.name}"
+              class="prodImage"
+            />
+            <span class="prodDetails">
+              <h2 class="prodName">${item.name.toLocaleUpperCase()}</h2>
+              <p class="prodPrice">$${item.price}</p>
+              <label for="prodQnt">Quantity</label>
+              <input 
+              type="number" 
+              id="prodQnt" 
+              class="prodQntInput"
+              value="${qnty}"
+              style="max-width:60px;"
+              >
+            </span>
+            
+          </div>`;
+      }
+
+      function calculateCost() {
+        const cost = cart.getTotalCost(),
+          shipping = cart.addShipping(12),
+          tax = cart.addTax() - cost,
+          total = cart.addTax();
+
+        document.write(`
+            <p> Subtotal: $${cost}</p>
+            <p > Shipping: $${shipping}</p>
+            <p > Tax: $${tax}</p>
+            <p > Total Price: $${cost}</p>
+        `);
+      }
+
+      function populateCart() {
+        // get code from cookie
+        const cartList = cart.getItemsOrdered();
+        for (let i = 0; i < cartList.length; i += 1) {
+          const item = cartList[i];
+          document.writeln(getElement(item));
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- Header and nav -->
+    <div class="headerContainer">
+      <div class="navContainer">
+        <img src="./images/logo02.png" alt="" />
+        <table>
+          <tr>
+            <script src="js/menu.js"></script>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Content Section:
+  Professor is using a dynamic style of javascript allowing the assets to be loaded dynamically
+  based on the items saved within our internal Js code, I will make this current page adhere to my 
+  current design, without changing any internal logic. -->
+    <div id="content" class="contentSection">
+      <h1>Cart</h1>
+      <!-- elements -->
+      <div class="prodGroup">
+        <script>
+          populateCart();
+        </script>
+      </div>
+
+      <!-- cost -->
+      <div class="recieptGroup">
+        <script>
+          calculateCost();
+        </script>
+      </div>
+    </div>
+
+    <div class="footerContainer">
+      <input
+        class="footerBtn"
+        type="button"
+        name="button"
+        value="BACK TO PRODUCTS"
+        onclick="location.href='products.html';"
+      />
+
+      <input
+        class="footerBtn"
+        type="button"
+        name="button"
+        value="CHECKOUT"
+        onclick="location.href='thankyou.html';"
+      />
+    </div>
+  </body>
+</html>

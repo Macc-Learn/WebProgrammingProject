@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title>GADGET GROUP SAMPLE</title>
+    <link rel="stylesheet" href="./css/shared.css" />
+    <link rel="stylesheet" href="./css/products.css">
+    <script src="js/cookiemanager.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/catalog.js"></script>
+    <script src="js/shoppingcart.js"></script>
+    <script>
+      const catalog = new Catalog();
+      function getElement(code) {
+        const item = catalog.getItem(code);
+        return `
+        <div class="prodElement">
+            <img
+              src="./images/${item.image}"
+              alt="${item.name}"
+              class="prodImage"
+            />
+            <span class="prodDetails" >
+              <h2 class="prodName">${item.name.toLocaleUpperCase()}</h2>
+              <p class="prodDescription">${item.description}</p>
+              <p class="prodPrice">$${item.price}</p>
+            </span>
+            <input
+              type="button"
+              value="Add To Cart"
+              onclick="let x1=new ShoppingCart(getCookie('whoami'));x1.addItem('${code}');alert('${item.name} Added to cart ...');"
+            />
+          </div>`;
+      }
+
+      function populateProd() {
+        // get code from cookie 
+        const code = getCookie('userprodview');
+        console.log(code);
+        document.writeln(getElement(code));
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- Header and nav -->
+    <div class="headerContainer">
+      <div class="navContainer">
+        <img src="./images/logo02.png" alt="" />
+        <table>
+          <tr>
+            <script src="js/menu.js"></script>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Content Section:
+  Professor is using a dynamic style of javascript allowing the assets to be loaded dynamically
+  based on the items saved within our internal Js code, I will make this current page adhere to my 
+  current design, without changing any internal logic. -->
+    <div id="content" class="contentSection">
+      <h1>Product Display</h1>
+      <!-- elements -->
+      <div class="prodGroup">
+        <script>
+          populateProd();
+        </script>
+      </div>
+    </div>
+
+    <div class="footerContainer">
+        <input
+          class="footerBtn"
+          type="button"
+          name="button"
+          value="BACK TO PRODUCTS"
+          onclick="location.href='products.html';"
+        />
+        
+        <input
+          class="footerBtn"
+          type="button"
+          name="button"
+          value="GO TO CART"
+          onclick="location.href='cart.html';"
+        />
+    </div>
+  </body>
+</html>

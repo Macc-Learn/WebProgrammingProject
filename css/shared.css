@@ -1,0 +1,18 @@
+:root {
+    --theme1: #c2cfb2; /* lime */
+    --theme2: #f2f5ff; /* white */
+    --theme3: #805e73; /* plum */
+    --theme4: #0f110c; /* black */
+    --theme5: #0f110ce5; /* black-transparent */
+    --theme6: #df82f4; /* hyper-plum */
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+a, p, h1, h2, h3{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: var(--theme2);
+}

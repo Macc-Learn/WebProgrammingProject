@@ -1,0 +1,69 @@
+<html>
+
+<head>
+	<title>GADGET GROUP - lOGIN</title>
+	<link rel="stylesheet" href="./css/shared.css">
+	<link rel="stylesheet" href="./css/login.css">
+	<script src="js/cookiemanager.js"></script>
+	<script>
+		function login() {
+			var username = document.getElementById("username").value;
+			var password = document.getElementById("password").value;
+			var pass = getCookie(username);
+
+			if (pass == null) alert("User Does not Exit");
+			else {
+				if (pass == password) {
+					setCookie("flag", "true", 30);
+					setCookie("whoami", username, 30);
+					location.href = "products.html";
+				}
+				else alert("password is incorrect");
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="content" style="margin-top: 10%;">
+		<form  class="loginFormContainer">
+			<table align=center>
+				<tr>
+					<td align="center"><h3>Sign in to your account</h3></td>
+					
+				</tr>
+				<tr>
+					<td align="center"><input type="text" placeholder="username" id="username"></td>
+				</tr>
+				<tr>
+					<td align="center"><input type="password" placeholder="password" id="password"><br></td>
+				</tr>
+				<tr>
+					<td align="center">
+						<input type="button" value="Login" onclick="login();">
+						<p>No account? <a href="registration.html">Register</a></p> 
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+	<!-- Nav on the bottom -->
+	<div class="bottomNav">
+		<span id="menu">
+			<table width="100%" align=center>
+				<tr>
+					<td align=center><h3>Welcome to Gadget Group Shop</h3></td>
+				</tr>
+			</table>
+		</span>
+		<span id="menu">
+			<table align=center>
+				<tr>
+					<script src="js/menu.js"></script>
+				</tr>
+			</table>
+		</span>
+	</div>
+</body>
+
+</html>
